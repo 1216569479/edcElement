@@ -100,6 +100,7 @@ export default {
     httpRequest: Function,
     disabled: Boolean,
     limit: Number,
+    setFileIcon: Function,
     onExceed: {
       type: Function,
       default: noop
@@ -273,6 +274,7 @@ export default {
         <UploadList
           disabled={this.uploadDisabled}
           listType={this.listType}
+          setFileIcon={this.setFileIcon}
           files={this.uploadFiles}
           on-remove={this.handleRemove}
           handlePreview={this.onPreview}>

@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-11-12 11:49:26
+ * @LastEditTime: 2021-12-21 18:17:46
+ * @LastEditors: your name
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \edcElement\packages\theme-chalk\gulpfile.js
+ */
 'use strict';
 
 const { series, src, dest } = require('gulp');
@@ -9,7 +17,7 @@ function compile() {
   return src('./src/*.scss')
     .pipe(sass.sync())
     .pipe(autoprefixer({
-      browsers: ['ie > 9', 'last 2 versions'],
+      overrideBrowserslist: ['ie > 9', 'last 2 versions'],
       cascade: false
     }))
     .pipe(cssmin())

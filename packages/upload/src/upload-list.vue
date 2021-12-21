@@ -24,8 +24,10 @@
           v-if="file.status !== 'uploading' && ['picture-card', 'picture'].indexOf(listType) > -1"
           :src="file.url" alt=""
         >
-        <a class="el-upload-list__item-name" @click="handleClick(file)">
-          <img :src="getFileIcon(file)" style="verticalAlign:top">{{file.name}}
+        <a class="el-upload-list__item-name">
+          <img @click="handleIconClick(file)" v-if="getFileIcon(file)" :src="getFileIcon(file)" style="verticalAlign:middle">
+          <i class="el-icon-document" @click="handleIconClick(file)" v-else></i>
+          <span @click="handleClick(file)">{{file.name}}</span>
         </a>
         <label class="el-upload-list__item-status-label">
           <i :class="{
@@ -90,6 +92,7 @@
         default: false
       },
       handlePreview: Function,
+      handleIconPreview:Function,
       listType: String,
       setFileIcon: Function
     },
@@ -100,11 +103,14 @@
       handleClick(file) {
         this.handlePreview && this.handlePreview(file);
       },
+      handleIconClick(file){
+        this.handleIconPreview && this.handleIconPreview(file);
+      },
       getFileIcon(file) {
         if (this.setFileIcon) {
           return this.setFileIcon(file);
         } else {
-          return 'el-icon-document';
+          return false;
         }
       }
     }

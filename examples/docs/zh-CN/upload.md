@@ -10,6 +10,7 @@
   class="upload-demo"
   action="https://jsonplaceholder.typicode.com/posts/"
   :on-preview="handlePreview"
+  :on-icon-preview="handleIconPreview"
   :on-remove="handleRemove"
   :before-remove="beforeRemove"
   multiple
@@ -29,6 +30,9 @@
     methods: {
       handleRemove(file, fileList) {
         console.log(file, fileList);
+      },
+      handleIconPreview(file) {
+        console.log(file,'icon');
       },
       handlePreview(file) {
         console.log(file);

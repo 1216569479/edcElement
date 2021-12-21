@@ -71,6 +71,9 @@ export default {
     onPreview: {
       type: Function
     },
+    onIconPreview: {
+      type: Function
+    },
     onSuccess: {
       type: Function,
       default: noop
@@ -277,7 +280,9 @@ export default {
           setFileIcon={this.setFileIcon}
           files={this.uploadFiles}
           on-remove={this.handleRemove}
+          handleIconPreview = {this.onIconPreview}
           handlePreview={this.onPreview}>
+         
           {
             (props) => {
               if (this.$scopedSlots.file) {
@@ -314,6 +319,7 @@ export default {
         'on-success': this.handleSuccess,
         'on-error': this.handleError,
         'on-preview': this.onPreview,
+        'on-icon-preview': this.onIconPreview,
         'on-remove': this.handleRemove,
         'http-request': this.httpRequest
       },

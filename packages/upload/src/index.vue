@@ -74,6 +74,12 @@ export default {
     onIconPreview: {
       type: Function
     },
+    onDownload: {
+      type: Function
+    },
+    onWatch: {
+      type: Function
+    },
     onSuccess: {
       type: Function,
       default: noop
@@ -281,7 +287,10 @@ export default {
           files={this.uploadFiles}
           on-remove={this.handleRemove}
           handleIconPreview = {this.onIconPreview}
-          handlePreview={this.onPreview}>
+          handlePreview={this.onPreview}
+          handleWatch = {this.onWatch}
+          handleDownload={this.onDownload}
+          >
          
           {
             (props) => {
@@ -321,7 +330,9 @@ export default {
         'on-preview': this.onPreview,
         'on-icon-preview': this.onIconPreview,
         'on-remove': this.handleRemove,
-        'http-request': this.httpRequest
+        'http-request': this.httpRequest,
+        'on-watch':this.onWatch,
+        'on-download':this.onDownload
       },
       ref: 'upload-inner'
     };

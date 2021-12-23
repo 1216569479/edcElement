@@ -227,7 +227,7 @@
   @include e(item-name) {
     color: $--color-text-regular;
     display: block;
-    margin-right: 40px;
+    margin-right: 60px;
     overflow: hidden;
     padding-left: 4px;
     text-overflow: ellipsis;
@@ -381,6 +381,8 @@
     }
   }
 
+
+
   @include m(picture) {
     .el-upload-list__item {
       overflow: hidden;
@@ -410,6 +412,7 @@
           display: block;
         }
       }
+  
 
       &.is-success {
         .el-upload-list__item-name {
@@ -419,8 +422,11 @@
             display: none;
           }
         }
+        
+     
       }
     }
+
 
     .el-upload-list__item-thumbnail {
       vertical-align: middle;
@@ -471,7 +477,47 @@
     }
   }
 }
+.el-upload-list__item-operate{
+  // float: right;
+  position: absolute;
+  width: 60px;
+  right:0;
+  height: 24px;
+  top:0;
+  .el-icon-view{
+    visibility: hidden;
+    cursor: pointer;
+    color: $--color-primary;
+    position: absolute;
+    top: 5px;
+    right: 39px;
+    font-size: 14px;
+  }
+  .el-icon-download{
+    visibility: hidden;
+    cursor: pointer;
+    color: $--color-primary;
+    position: absolute;
+    top: 5px;
+    right: 22px;
+    font-size: 14px;
+  }
+}
+.el-upload-list--text{
 
+  .el-upload-list__item {
+    &.is-success{
+      .el-upload-list__item-operate{
+        i.el-icon-view {
+          visibility: visible;
+        }
+        .el-icon-download{
+          visibility: visible;
+        }
+      }
+    }
+  }
+}
 @include b(upload-cover) {
   position: absolute;
   left: 0;

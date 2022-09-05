@@ -55,7 +55,8 @@ export default {
         sep: '九月',
         oct: '十月',
         nov: '十一月',
-        dec: '十二月'
+        dec: '十二月',
+        nkMonth:'NK'
       }
     },
     select: {

@@ -55,7 +55,8 @@ export default {
         sep: '9月',
         oct: '10月',
         nov: '11月',
-        dec: '12月'
+        dec: '12月',
+        nkMonth:'UK'
       }
     },
     select: {

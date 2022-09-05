@@ -121,6 +121,10 @@
               "title": "DatePicker 日期选择器"
             },
             {
+              "path": "/date-ukpicker",
+              "title": "DatePicker uk日期选择器"
+            },
+            {
               "path": "/datetime-picker",
               "title": "DateTimePicker 日期时间选择器"
             },

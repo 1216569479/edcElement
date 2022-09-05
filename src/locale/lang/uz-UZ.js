@@ -55,7 +55,8 @@ export default {
         sep: 'Sen',
         oct: 'Okt',
         nov: 'Noy',
-        dec: 'Dek'
+        dec: 'Dek',
+        nkMonth:'NK'
       }
     },
     select: {

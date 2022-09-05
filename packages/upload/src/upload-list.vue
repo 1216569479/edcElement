@@ -43,8 +43,8 @@
           <span @click="handleClick(file)">{{ file.name }}</span>
         </a>
         <div class="el-upload-list__item-operate">
-          <i class="el-icon-view" @click="handleWatchClick(file)"></i>
-          <i class="el-icon-download" @click="handleDownloadClick(file)"></i>
+          <i class="el-icon-view" v-if="getViewFlag(file)" @click="handleWatchClick(file)"></i>
+          <i class="el-icon-download" v-if="getDowmloadFlag(file)" @click="handleDownloadClick(file)"></i>
           <label class="el-upload-list__item-status-label">
             <i
               :class="{
@@ -73,12 +73,16 @@
           class="el-upload-list__item-actions"
           v-if="listType === 'picture-card'"
         >
+   
           <span
             class="el-upload-list__item-preview"
-            v-if="handlePreview && listType === 'picture-card'"
-            @click="handlePreview(file)"
+            v-if="getViewFlag(file) && listType === 'picture-card'"
+          
           >
-            <i class="el-icon-zoom-in"></i>
+            <i class="el-icon-zoom-in" @click="handlePreview(file)"></i>
+          </span>
+          <span class="el-upload-list__item-preview" v-if="getDowmloadFlag(file)">
+            <i class="el-icon-zoom-in"  @click="handleDownloadClick(file)"></i>
           </span>
           <span
             v-if="!disabled"
@@ -125,6 +129,8 @@ export default {
     handleDownload:Function,
     listType: String,
     setFileIcon: Function,
+    setDowmloadFlag:Function,
+    setViewFlag:Function
   },
   methods: {
     parsePercentage(val) {
@@ -141,6 +147,20 @@ export default {
     },
     handleIconClick(file) {
       this.handleIconPreview && this.handleIconPreview(file);
+    },
+    getViewFlag(file) {
+      if (this.setViewFlag) {
+        return this.setViewFlag(file);
+      } else {
+        return true;
+      }
+    },
+    getDowmloadFlag(file) {
+      if (this.setDowmloadFlag) {
+        return this.setDowmloadFlag(file);
+      } else {
+        return true;
+      }
     },
     getFileIcon(file) {
       if (this.setFileIcon) {
